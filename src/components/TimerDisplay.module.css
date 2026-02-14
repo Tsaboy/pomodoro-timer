@@ -1,0 +1,65 @@
+.wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.ringBg {
+  composes: ring;
+  border: 10px solid rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.06);
+}
+
+.ringProgress {
+  composes: ring;
+  /* conic-gradient starts at top; we draw elapsed from top */
+  background: var(--progress-bg);
+  /* ring: hide center (0–130px), show ring (130–140px) */
+  mask: radial-gradient(circle, transparent 130px, black 140px);
+  -webkit-mask: radial-gradient(circle, transparent 130px, black 140px);
+  transition: background 0.5s ease-out;
+}
+
+.time {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel-large);
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  letter-spacing: 0.02em;
+  user-select: none;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Fox / runner at progress tip */
+.fox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  margin-top: -14px;
+  transform-origin: 50% 50%;
+  transition: transform 0.5s ease-out;
+  pointer-events: none;
+}
+
+.fox svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+}

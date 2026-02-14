@@ -1,0 +1,63 @@
+:root {
+  --text-primary: #fff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --surface: #2a2a2e;
+  --card-bg: rgba(50, 50, 55, 0.88);
+  --accent: #e07a45;
+  --accent-light: #ed9060;
+  --short-break: #27ae60;
+  --long-break: #3498db;
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-pixel-large: 'VT323', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-pixel-large);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Fallback gradient (bottom layer) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(180deg, #87ceeb 0%, #b8d4e8 40%, #6b8e6b 70%, #2d4a2d 100%);
+}
+
+/* Background: Spill by mini-moss. Save the image from
+   https://www.tumblr.com/mini-moss/706787418874036224/spill-this-piece-is-from-2021-i-added-some
+   as public/background.jpg */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url('/background.jpg') center center / cover no-repeat;
+  pointer-events: none;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 1;
+}
